@@ -1,0 +1,26 @@
+{% extends 'measure/base.html' %}
+{% block content %}
+<div class="container">
+    <form method="get">
+        <input type="text" name="codigo" placeholder="codigo">
+        <input type="number" name="latitud" placeholder="latitud">
+        <input type="number" name="longitud" placeholder="longitud">
+        <input type="number" name="area" placeholder="area">
+        <select name="terreno">
+            <option value="Planicie">Planicie</option>
+            <option value="Ladera">Ladera</option>
+            <option value="Cenagoso">Cenagoso</option>
+            <option value="Desertico">Desertico</option>
+        </select>
+
+
+
+        <button type="submit">Adicionar</button>
+    </form>
+    {% for measure in measures %}
+    <ul class="list-group">
+        <li class="list-group-item">{{measure.codigo}} | {{measure.latitud}} | {{measure.longitud}} | {{measure.terreno}} | {{measure.area}}</li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}
